@@ -1,0 +1,151 @@
+matches:
+  # General opening for all calls
+  - trigger: ":cbopen"
+    replace: "Hi, this is [Your Name] from <<Practice Name>>. I’m calling to check on <<Patient Name>> after their recent visit. Do you have a few minutes to talk?\nHow is <<Patient Name>> doing overall since we saw them?"
+
+  # Closing for all calls
+  - trigger: ":cbclose"
+    replace: "Do you have any other questions or concerns for the vet?\nWould you like to schedule a follow‑up appointment or reminder?\nThank you for your time. We’ll pass your notes along to the vet. Have a great day!"
+
+  # 1. Gastro
+  - trigger: ":cbgastro"
+    replace: |
+      Is <animal> eating and drinking normally?
+      Any vomiting since the visit? If yes, how many times and what did it look like (food, bile, blood)?
+      Any diarrhoea? What consistency? Any blood or mucus?
+      Is <<Patient Name>> acting lethargic or more tired than usual?
+      Are you giving the prescribed medication (e.g., anti‑nausea, gut protectants)? Any difficulty?
+      Have you noticed any abdominal discomfort (e.g., hunched posture, whining when touched)?
+      Any changes in appetite or behaviour?
+
+  # 2. Vaccination
+  - trigger: ":cbvacc"
+    replace: |
+      Any reactions after the vaccine? (Swelling at injection site, mild lethargy, vomiting, facial swelling?)
+      Is <<Patient Name>> eating and drinking normally?
+      Any signs of discomfort or itchiness?
+      Reminder: Next vaccine due on <<Next Vaccine Due Date>> – would you like to schedule an appointment?
+
+  # 3. Lameness
+  - trigger: ":cblame"
+    replace: |
+      Is <<Patient Name>> still limping? Better, worse, or about the same?
+      Are they bearing weight on the leg?
+      Any swelling, heat, or tenderness in the limb?
+      Are they eating and drinking normally?
+      Are you giving the prescribed pain medication? If so, as directed?
+      Any change in activity? (e.g., reluctance to walk, play, or climb stairs)
+
+  # 4. Allergies
+  - trigger: ":cballergy"
+    replace: |
+      Is <<Patient Name>> still itching or scratching? More or less than before?
+      Any redness, bumps, hair loss, or odour?
+      Are you giving the medication (antihistamines, steroids, antibiotics, special shampoo)? How is that going?
+      Any changes in diet, treats, or environment?
+      Have you noticed licking of paws, rubbing face, or ear infections?
+
+  # 5a. Routine Procedures – Spay
+  - trigger: ":cbspay"
+    replace: |
+      How is <<Patient Name>> doing after surgery?
+      Eating and drinking normally?
+      Any vomiting or diarrhoea?
+      Incision check: Any redness, swelling, discharge, or opening? Is she licking or bothering the site?
+      Are you keeping her calm and restricting activity (no running, jumping)?
+      Any signs of pain (whining, restlessness, hiding)?
+
+  # 5b. Castration
+  - trigger: ":cbcast"
+    replace: |
+      How is <<Patient Name>> doing after surgery?
+      Eating and drinking normally?
+      Any vomiting or diarrhoea?
+      Incision check: Any redness, swelling, discharge, or opening? Is he licking or bothering the site?
+      Are you keeping him calm and restricting activity (no running, jumping)?
+      Any signs of pain (whining, restlessness, hiding)?
+
+  # 5c. Dental
+  - trigger: ":cbdental"
+    replace: |
+      Is <<Patient Name>> eating? Any difficulty chewing or dropping food?
+      Any bleeding from the mouth?
+      Are you giving pain medication as prescribed?
+      Have you noticed any swelling of the face or bad breath?
+      Any changes in behaviour (e.g., pawing at mouth)?
+
+  # 5d. Lump Removal
+  - trigger: ":cblump"
+    replace: |
+      Incision check: Any redness, swelling, discharge, or opening?
+      Eating and drinking normally?
+      Any signs of pain or discomfort?
+      Is the pet bothering the site (licking, rubbing)?
+      Activity restriction – are you keeping them calm?
+
+  #5e. Splenectomy (spleen removal)
+  - trigger: ":cbspleen"
+    replace: |
+      How is <<Patient Name>> doing since surgery?
+      Eating and drinking normally?
+      Any vomiting or diarrhoea?
+      Incision check: Any redness, swelling, discharge, or opening? Is the pet licking or bothering the site?
+      Activity restriction – are you keeping them calm and confined (no running, jumping, stairs)?
+      Any signs of pain or discomfort (whining, restlessness, hiding)?
+      Have you noticed any weakness, pale gums, or collapse? (potential signs of internal bleeding)
+      Any coughing or difficulty breathing?
+      Are you giving all prescribed medications as directed?
+
+  # 5f. General post‑operative callback
+  - trigger: ":cbpostop"
+    replace: |
+      How is <<Patient Name>> doing since surgery?
+      Eating and drinking normally?
+      Any vomiting or diarrhoea?
+      Incision check: Any redness, swelling, discharge, or opening? Is the pet licking or bothering the site?
+      Activity restriction – are you keeping them calm and confined (no running, jumping, stairs)?
+      Any signs of pain or discomfort (whining, restlessness, hiding)?
+      Are you giving all prescribed medications as directed?
+      Have you noticed any unusual behaviour or symptoms?
+      Do you have any questions or concerns for the vet?
+
+  # 6a. Ortho – CCL (e.g., TPLO)
+  - trigger: ":cbccl"
+    replace: |
+      How is the leg? Is <<Patient Name>> putting weight on it?
+      Any swelling or heat around the surgery site?
+      Are you doing the recommended physiotherapy or range‑of‑motion exercises?
+      Pain medication – are you giving it as directed?
+      Activity restriction – are you strictly following the confinement plan (no running, jumping, stairs)?
+
+  # 6b. Ortho – Patella
+  - trigger: ":cbpatella"
+    replace: |
+      How is the leg? Is <<Patient Name>> putting weight on it?
+      Any swelling or heat around the surgery site?
+      Are you doing the recommended physiotherapy or range‑of‑motion exercises?
+      Pain medication – are you giving it as directed?
+      Activity restriction – are you strictly following the confinement plan?
+
+  # 6c. Ortho – IVDD (medical or surgical)
+  - trigger: ":cbivdd"
+    replace: |
+      If surgery: How is the incision? Any redness, swelling, discharge?
+      Neurological status: Is <<Patient Name>> able to walk? Any improvement in coordination?
+      If medical (crate rest): Are you strictly confining them to a small space?
+      Bladder and bowel function – any difficulty urinating/defecating, or incontinence?
+      Pain management – are you giving all medications?
+      Any signs of pain (whining, trembling, tense abdomen)?
+
+  # 6d. Ortho – Fracture
+  - trigger: ":cbfx"
+    replace: |
+      Is <<Patient Name>> bearing weight on the limb?
+      If cast/splint: Any irritation, swelling, odour, or slipping? Is it staying dry?
+      If surgery: Incision check (redness, swelling, discharge).
+      Pain medication compliance?
+      Activity restriction – are you following instructions (no running, jumping)?
+
+   # 7. Normal clinical exam
+  - trigger: ":clnad"
+    replace: "TPR WNL, MM=pmg CRT<2s, hydration WNL, heart/lungs NAD, abd palp NAD, BCS __/9, neuro WNL"
